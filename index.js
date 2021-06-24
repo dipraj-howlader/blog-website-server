@@ -5,14 +5,14 @@ const bodyParser = require('body-parser');
 require('dotenv').config();
 const MongoClient = require('mongodb').MongoClient;
 const ObjectID = require('mongodb').ObjectID;
-
+const fileUpload = require('express-fileupload');
 
 
 const port = 5000;
 
 app.use(cors());
 app.use(bodyParser.json());
-
+app.use(fileUpload());
 
 app.get('/',(req,res) => {
     res.send('Hello World')
@@ -29,12 +29,13 @@ client.connect(err => {
 
   app.post('/addBlog',(req, res) =>{
     const newBlog = req.body;
-    
+    console.log(newBlog);
+
     blogsCollection.insertOne(newBlog)
     .then(result => {
         console.log('inserted ', result.insertedCount)
         res.send(res.insertedCount > 0)
-    })
+    })  
 })
 
 

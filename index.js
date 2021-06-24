@@ -29,8 +29,6 @@ client.connect(err => {
 
   app.post('/addBlog',(req, res) =>{
     const newBlog = req.body;
-    console.log(newBlog);
-
     blogsCollection.insertOne(newBlog)
     .then(result => {
         console.log('inserted ', result.insertedCount)
@@ -40,12 +38,12 @@ client.connect(err => {
 
 
 //get and delete
-// app.get('/service',(req,res) => {
-//     serviceCollection.find()
-//     .toArray((err,document)=>{
-//         res.send(document)
-//     })
-// })
+app.get('/blogs',(req,res) => {
+    blogsCollection.find()
+    .toArray((err,document)=>{
+        res.send(document)
+    })
+})
 
 // app.delete('/delete/:id' , (req, res)=> {
 //     serviceCollection.deleteOne({_id: ObjectID(req.params.id)})

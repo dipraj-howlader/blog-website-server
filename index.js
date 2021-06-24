@@ -36,6 +36,27 @@ client.connect(err => {
         res.send(res.insertedCount > 0)
     })
 })
+
+
+//get and delete
+// app.get('/service',(req,res) => {
+//     serviceCollection.find()
+//     .toArray((err,document)=>{
+//         res.send(document)
+//     })
+// })
+
+// app.delete('/delete/:id' , (req, res)=> {
+//     serviceCollection.deleteOne({_id: ObjectID(req.params.id)})
+//     .then((result) =>{
+//       console.log(result);
+//     })
+//   })
+
+
+
+
+
   
 });
 

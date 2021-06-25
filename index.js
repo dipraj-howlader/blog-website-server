@@ -45,12 +45,13 @@ app.get('/blogs',(req,res) => {
     })
 })
 
-// app.delete('/delete/:id' , (req, res)=> {
-//     serviceCollection.deleteOne({_id: ObjectID(req.params.id)})
-//     .then((result) =>{
-//       console.log(result);
-//     })
-//   })
+app.delete('/delete/:id' , (req, res)=> {
+    // console.log(req.params.id);
+    blogsCollection.deleteOne({_id: ObjectID(req.params.id)})
+    .then((err ,result) =>{
+      console.log(err);
+    })
+  })
 
 
 
